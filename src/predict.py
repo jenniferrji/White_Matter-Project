@@ -1,3 +1,4 @@
+
 import os
 import nibabel as nib
 import copy
@@ -15,10 +16,11 @@ flags.DEFINE_integer('gpu', None, '# of gpu to use')
 os.environ['CUDA_VISIBLE_DEVICES'] = str(FLAGS.gpu)
 meta_graph = FLAGS.weights + '.meta'
 meta_weight = FLAGS.weights
-
+print('this')
 subjects = os.listdir(FLAGS.dataset)
 
 with tf.device('/gpu:%s'%FLAGS.gpu):
+    print('here')
     saver = tf.train.import_meta_graph(meta_graph)
     sess = tf.Session(config=tf.ConfigProto(allow_soft_placement=True))
     saver.restore(sess, meta_weight)

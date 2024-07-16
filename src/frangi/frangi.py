@@ -42,3 +42,5 @@ def compute_vesselness(eigen1, eigen2, eigen3, alpha, beta, c, black_white):
     filtered = tf.squeeze(filtered)
 
     return filtered
+
+
